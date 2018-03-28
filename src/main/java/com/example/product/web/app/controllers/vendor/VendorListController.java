@@ -18,7 +18,7 @@ public class VendorListController {
 
     public VendorListController(IVendorListService listService) { this.listService = listService; }
 
-    @GetMapping(value = "/products/{vendorId}")
+    @GetMapping(value = "/vendor")
     public Result list(Pageable page) {
         listService.execute(page, new VendorListService.ServiceResponse() {
             @Override
