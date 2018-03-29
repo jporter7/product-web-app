@@ -1,4 +1,4 @@
-package com.example.product.web.app.controllers.vendor;
+package com.example.product.web.app.vendor;
 
 import com.kleancierge.product.api.contract.FieldErrors;
 import com.kleancierge.product.api.contract.Result;
@@ -21,7 +21,7 @@ public class VendorListController {
 
     public VendorListController() {}//IVendorListService listService) { this.listService = listService; }
 
-    /*@GetMapping(value = "/vendor")
+    /*@GetMapping(value = "/vendor/page/")
     public Result list(Pageable page) {
         listService.execute(page, new VendorListService.ServiceResponse() {
             @Override
@@ -34,9 +34,9 @@ public class VendorListController {
         return result;
     }*/
 
-    @GetMapping(value = "/vendor", produces = "text/html")
+    @GetMapping(value = "/vendor/page/")//, produces = "text/html")
     public String list(){
-        return "redirect:/vendorlistpage.html";
+        return "";
     }
 
     /*@RequestMapping(value = "/vendor", method = RequestMethod.GET)

@@ -1,4 +1,4 @@
-package com.example.product.web.app.controllers;
+package com.example.product.web.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
