@@ -15,32 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class VendorListController {
-    private IVendorListService listService;
-
-    private Result result;
-
-    public VendorListController() {}//IVendorListService listService) { this.listService = listService; }
-
-    /*@GetMapping(value = "/vendor/page/")
-    public Result list(Pageable page) {
-        listService.execute(page, new VendorListService.ServiceResponse() {
-            @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
-
-            @Override
-            public void success(Page<Model> products) { result = Result.SUCCESS(products); }
-        });
-
-        return result;
-    }*/
+    public VendorListController() {}
 
     @GetMapping(value = "/vendor/page/")//, produces = "text/html")
     public String list(){
-        return "";
+        return "redirect:";
     }
 
-    /*@RequestMapping(value = "/vendor", method = RequestMethod.GET)
-    public String index() {
-        return "vendorlistpage";
-    }*/
 }
