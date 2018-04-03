@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class VendorListController {
     public VendorListController() {}
 
-    @GetMapping(value = "/vendors/page", produces = "text/html")
+    @GetMapping(value = "/vendors/list", produces = "text/html")
     public String list(){
         return "forward:/vendorList.html";
     }

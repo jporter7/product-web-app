@@ -13,5 +13,4 @@ public class VendorCreateController {
     public String registration() {
         return "forward:/vendorCreate.html";
     }
-
 }

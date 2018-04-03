@@ -24,4 +24,4 @@ bower_components
 .idea/
 
 gradle*
-.gradle*
+*.gradle
