@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class VendorListController {
     public VendorListController() {}
 
-    @GetMapping(value = "/vendors/page/1", produces = "text/html")
+    @GetMapping(value = "/vendors/page", produces = "text/html")
     public String list(){
-        return "redirect:/vendorList.html";
+        return "forward:/vendorList.html";
     }
 
 }

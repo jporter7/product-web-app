@@ -8,7 +8,8 @@ import com.kleancierge.product.api.contract.vendor.VendorListService;
 import com.kleancierge.product.api.model.vendor.Model;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -19,7 +20,7 @@ public class VendorListRestController {
 
     public VendorListRestController(IVendorListService listService) { this.listService = listService; }
 
-    @GetMapping(value = "/vendor/page/{pageNumber}")
+    @RequestMapping(method = RequestMethod.GET, value = "/vendors/page/{pageNumber}")
     public Result list(Pageable page) {
         listService.execute(page, new VendorListService.ServiceResponse() {
             @Override
