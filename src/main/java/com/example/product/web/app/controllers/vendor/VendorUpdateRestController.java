@@ -1,4 +1,4 @@
-package com.example.product.web.app.vendor;
+package com.example.product.web.app.controllers.vendor;
 
 import com.kleancierge.product.api.contract.FieldErrors;
 import com.kleancierge.product.api.contract.Result;

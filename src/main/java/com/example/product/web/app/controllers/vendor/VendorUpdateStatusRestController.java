@@ -1,25 +1,25 @@
-package com.example.product.web.app.product;
+package com.example.product.web.app.controllers.vendor;
 
 import com.kleancierge.product.api.contract.FieldErrors;
 import com.kleancierge.product.api.contract.Result;
-import com.kleancierge.product.api.contract.product.IProductUpdateStatusService;
-import com.kleancierge.product.api.contract.product.ProductUpdateStatusService;
+import com.kleancierge.product.api.contract.vendor.IVendorUpdateStatusService;
+import com.kleancierge.product.api.contract.vendor.VendorUpdateStatusService;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ProductUpdateStatusRestController {
-    private IProductUpdateStatusService updateStatusService;
+public class VendorUpdateStatusRestController {
+    private IVendorUpdateStatusService updateStatusService;
 
     private Result result;
 
-    public ProductUpdateStatusRestController(IProductUpdateStatusService updateStatusService) {
+    public VendorUpdateStatusRestController(IVendorUpdateStatusService updateStatusService) {
         this.updateStatusService = updateStatusService;
     }
 
-    @PutMapping(value = "/product/update-status/{productId}")
+    @PutMapping(value = "/vendor/update-status/{vendorId}")
     public Result updateStatus(Long id, String status) {
-        updateStatusService.execute(id, status, new ProductUpdateStatusService.ServiceResponse() {
+        updateStatusService.execute(id, status, new VendorUpdateStatusService.ServiceResponse() {
             @Override
             public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
 
