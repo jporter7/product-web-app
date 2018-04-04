@@ -12,5 +12,4 @@ public class VendorListController {
     public String list(){
         return "forward:/vendorList.html";
     }
-
 }
