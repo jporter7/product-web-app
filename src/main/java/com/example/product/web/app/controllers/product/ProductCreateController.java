@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ProductCreateController {
         public ProductCreateController() { }
 
-        @GetMapping(value = "/product/create", produces = "text/html")
+        @GetMapping(value = "/vendor/{vendorId}/product/create", produces = "text/html")
         public String create(){
             return "forward:/productCreate.html";
         }

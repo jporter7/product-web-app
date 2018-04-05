@@ -19,10 +19,10 @@ public class ContactDeleteRestController {
     public Result delete(Long id) {
         deleteService.execute(id, new ContactDeleteService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
 
             @Override
-            public void success(Long id) { Result.SUCCESS(id); }
+            public void success(Long id) { result = Result.SUCCESS(id); }
         });
 
         return result;

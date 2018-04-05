@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ProductUpdateController {
     public ProductUpdateController() { }
 
-    @GetMapping(value = "/product/update", produces = "text/html")
+    @GetMapping(value = "/vendor/{vendorId}/product/update", produces = "text/html")
     public String update() { return "forward:/productUpdate.html"; }
 }

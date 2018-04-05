@@ -17,7 +17,7 @@ public class VendorCreateRestController {
     public VendorCreateRestController(IVendorCreateService createService) { this.createService = createService; }
 
     @PostMapping(value = "/vendor/registration/{id}")
-    public Result retrieve(CreateForm form) {
+    public Result register(CreateForm form) {
         createService.execute(form, new VendorCreateService.ServiceResponse() {
             @Override
             public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }

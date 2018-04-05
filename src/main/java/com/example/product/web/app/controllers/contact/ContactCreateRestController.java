@@ -17,7 +17,7 @@ public class ContactCreateRestController {
     public ContactCreateRestController(IContactCreateService createService) { this.createService = createService; }
 
     @PostMapping(value = "/vendor/{vendorId}/contact/create/{contactId}")
-    public Result retrieve(CreateForm form) {
+    public Result create(CreateForm form) {
         createService.execute(form, new ContactCreateService.ServiceResponse() {
             @Override
             public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
