@@ -11,6 +11,6 @@ public class VendorCreateController {
 
     @GetMapping(value = "/vendor/registration", produces = "text/html")
     public String registration() {
-        return "forward:/vendorCreate.html";
+        return "forward:/VendorCreate.html";
     }
 }

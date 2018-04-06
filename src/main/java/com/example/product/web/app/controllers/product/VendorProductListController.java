@@ -10,6 +10,6 @@ public class VendorProductListController {
 
     @GetMapping(value = "/vendor/{vendorId}/products/list", produces = "text/html")
     public String list(){
-        return "forward:/vendorProductList.html";
+        return "forward:/VendorProductList.html";
     }
 }

@@ -9,6 +9,6 @@ public class VendorContactListController {
 
     @GetMapping(value = "/vendor/{vendorId}/contacts/list", produces = "text/html")
     public String list(){
-        return "forward:/vendorContactList.html";
+        return "forward:/VendorContactList.html";
     }
 }
