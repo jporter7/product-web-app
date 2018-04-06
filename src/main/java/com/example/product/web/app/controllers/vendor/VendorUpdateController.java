@@ -8,5 +8,5 @@ public class VendorUpdateController {
     public VendorUpdateController() { }
 
     @GetMapping(value = "/vendor/update", produces = "text/html")
-    public String update() { return "forward:/vendorUpdate.html"; }
+    public String update() { return "forward:/VendorUpdate.html"; }
 }
