@@ -7,22 +7,22 @@ import com.kleancierge.product.api.repository.entity.Contact;
 
 public class CreateContactAdapter {
 
-    public Contact toWebApp(CreateForm createForm){
-        Contact contact = new Contact();
-        contact.setEmailAddress(createForm.getEmailAddress());
-        contact.setNote(createForm.getNote());
-        contact.setLastName(createForm.getLastName());
-        contact.setFirstName(createForm.getFirstName());
-        return contact;
+    public Model toWebApp(CreateForm createForm){
+        Model model = new Model();
+        model.setEmailAddress(createForm.getEmailAddress());
+        model.setNote(createForm.getNote());
+        model.setLastName(createForm.getLastName());
+        model.setFirstName(createForm.getFirstName());
+        return model;
     }
 
-    public Model toContract(Contact contact){
-        Model model = new Model();
+    public Contact toContract(Model model){
+        Contact contact = new Contact();
         model.setEmailAddress(contact.getEmailAddress());
         model.setNote(contact.getNote());
         model.setId(contact.getId());
         model.setLastName(contact.getLastName());
         model.setFirstName(contact.getFirstName());
-        return model;
+        return contact;
     }
 }
