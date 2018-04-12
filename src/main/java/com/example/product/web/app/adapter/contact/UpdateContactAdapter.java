@@ -1,17 +1,17 @@
 package com.example.product.web.app.adapter.contact;
 
 import com.example.product.web.app.model.contact.ModelWA;
-import com.kleancierge.product.api.contract.contact.ContactCreateService;
 import com.kleancierge.product.api.model.contact.CreateForm;
+import com.kleancierge.product.api.model.contact.UpdateForm;
 import com.kleancierge.product.api.repository.entity.Contact;
 
-public class CreateContactAdapter {
-    public ModelWA toWebApp(CreateForm createForm){
+public class UpdateContactAdapter {
+    public ModelWA toWebApp(UpdateForm updateForm){
         ModelWA model = new ModelWA();
-        model.setEmailAddress(createForm.getEmailAddress());
-        model.setNote(createForm.getNote());
-        model.setLastName(createForm.getLastName());
-        model.setFirstName(createForm.getFirstName());
+        model.setEmailAddress(updateForm.getEmailAddress());
+        model.setNote(updateForm.getNote());
+        model.setLastName(updateForm.getLastName());
+        model.setFirstName(updateForm.getFirstName());
         return model;
     }
 
