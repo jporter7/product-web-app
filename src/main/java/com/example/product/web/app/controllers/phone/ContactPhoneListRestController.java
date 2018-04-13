@@ -20,8 +20,9 @@ public class ContactPhoneListRestController {
 
     public ContactPhoneListRestController(IContactPhoneListService listService) { this.listService = listService; }
 
-    @GetMapping(value = "/vendor/contact/phones/{pageIndex}")
-    public Result list(@RequestParam("pageSize") int pageSize, @RequestParam("pageIndex") int pageIndex, Long id) {
+    @GetMapping(value = "/contact/{id}/phones/{pageIndex}")
+    public Result list(@RequestParam("pageSize") int pageSize, @RequestParam("pageIndex") int pageIndex,
+                       @RequestParam("id") Long id) {
         PageRequest page = new PageRequest(pageIndex, pageSize);
 
         listService.execute(id, page, new ContactPhoneListService.ServiceResponse() {

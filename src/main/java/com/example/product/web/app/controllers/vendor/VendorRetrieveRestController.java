@@ -6,6 +6,7 @@ import com.kleancierge.product.api.contract.vendor.IVendorRetrieveService;
 import com.kleancierge.product.api.contract.vendor.VendorRetrieveService;
 import com.kleancierge.product.api.model.vendor.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,8 +17,8 @@ public class VendorRetrieveRestController {
 
     public VendorRetrieveRestController(IVendorRetrieveService retrieveService) { this.retrieveService = retrieveService; }
 
-    @GetMapping(value = "/vendor/{vendorId}")
-    public Result retrieve(Long id) {
+    @GetMapping(value = "/vendor/{id}")
+    public Result retrieve(@RequestParam("id") Long id) {
         retrieveService.execute(id, new VendorRetrieveService.ServiceResponse() {
             @Override
             public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }

@@ -20,8 +20,9 @@ public class VendorProductListRestController {
 
     public VendorProductListRestController(IVendorProductListService listService) { this.listService = listService; }
 
-    @GetMapping(value = "/vendor/products/{pageIndex}")
-    public Result list(@RequestParam("pageSize") int pageSize, @RequestParam("pageIndex") int pageIndex, Long id) {
+    @GetMapping(value = "/vendor/{id}/products/{pageIndex}")
+    public Result list(@RequestParam("pageSize") int pageSize, @RequestParam("pageIndex") int pageIndex,
+                       @RequestParam("id") Long id) {
         PageRequest page = new PageRequest(pageIndex, pageSize);
 
         listService.execute(id, page, new VendorProductListService.ServiceResponse() {

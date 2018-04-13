@@ -17,7 +17,7 @@ public class ProductUpdateStatusRestController {
         this.updateStatusService = updateStatusService;
     }
 
-    @PutMapping(value = "/vendor/{vendorId}/product/update-status/{productId}")
+    @PutMapping(value = "/product-management/vendor/{vendorId}/product/status/{productId}")
     public Result updateStatus(Long id, String status) {
         updateStatusService.execute(id, status, new ProductUpdateStatusService.ServiceResponse() {
             @Override
