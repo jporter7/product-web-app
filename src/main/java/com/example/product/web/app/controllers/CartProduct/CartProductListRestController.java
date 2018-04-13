@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ListRestController {
+public class CartProductListRestController {
     private ICartProductListService listService;
 
     private Result result;
 
-    public ListRestController(ICartProductListService listService) { this.listService = listService; }
+    public CartProductListRestController(ICartProductListService listService) { this.listService = listService; }
 
     @GetMapping(value = "/cart/products")
     public Result list(Pageable page, Long id) {

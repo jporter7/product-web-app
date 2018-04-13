@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class RetrieveRestController {
+public class CartProductRetrieveRestController {
     private ICartProductRetrieveService retrieveService;
 
     private Result result;
 
-    public RetrieveRestController(ICartProductRetrieveService retrieveService) { this.retrieveService = retrieveService; }
+    public CartProductRetrieveRestController(ICartProductRetrieveService retrieveService) { this.retrieveService = retrieveService; }
 
     @GetMapping(value = "/cart/product/{id}")
     public Result retrieve(Long id) {

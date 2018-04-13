@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UpdateRestController {
+public class CartProductUpdateRestController {
     private ICartProductUpdateService updateService;
 
     private Result result;
 
-    public UpdateRestController(ICartProductUpdateService updateService) {
+    public CartProductUpdateRestController(ICartProductUpdateService updateService) {
         this.updateService = updateService;
     }
 
