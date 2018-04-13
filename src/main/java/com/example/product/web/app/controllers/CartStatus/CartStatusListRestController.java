@@ -6,8 +6,10 @@ import com.kleancierge.product.api.contract.cartstatus.CartStatusListService;
 import com.kleancierge.product.api.contract.cartstatus.ICartStatusListService;
 import com.kleancierge.product.api.model.cartstatus.Model;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,8 +20,10 @@ public class CartStatusListRestController {
 
     public CartStatusListRestController(ICartStatusListService listService) { this.listService = listService; }
 
-    @GetMapping(value = "/cart/cart-status")
-    public Result list(Pageable page, Long id) {
+    @GetMapping(value = "/cart/cart-statuses/{pageIndex}")
+    public Result list(@RequestParam("pageSize") int pageSize, @RequestParam("pageIndex") int pageIndex, Long id) {
+        PageRequest page = new PageRequest(pageIndex, pageSize);
+
         listService.execute(id, page, new CartStatusListService.ServiceResponse() {
             @Override
             public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }

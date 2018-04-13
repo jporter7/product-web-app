@@ -8,7 +8,6 @@ import com.kleancierge.product.api.contract.vendor.VendorListService;
 import com.kleancierge.product.api.model.vendor.Model;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,11 +20,11 @@ public class VendorListRestController {
 
     public VendorListRestController(IVendorListService listService) { this.listService = listService; }
 
-    @GetMapping(value = "/vendors/list")
+    @GetMapping(value = "/vendors/{pageIndex}")
     public Result list(@RequestParam("pageSize") int pageSize, @RequestParam("pageIndex") int pageIndex) {
-        PageRequest request = new PageRequest(pageIndex, pageSize);
+        PageRequest page = new PageRequest(pageIndex, pageSize);
 
-        listService.execute(request, new VendorListService.ServiceResponse() {
+        listService.execute(page, new VendorListService.ServiceResponse() {
             @Override
             public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
 
