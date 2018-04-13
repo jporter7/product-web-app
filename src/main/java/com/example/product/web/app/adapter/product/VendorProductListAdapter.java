@@ -1,5 +1,6 @@
 package com.example.product.web.app.adapter.product;
 
+import com.kleancierge.product.api.repository.entity.Product;
 import com.kleancierge.product.api.repository.entity.Vendor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -9,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VendorProductListAdapter {
-    public List<Vendor> toContract(Pageable pageable){
-        List<Vendor> vendorList = new ArrayList<>();
-        Page<Vendor> vendors = new PageImpl<Vendor>(vendorList, pageable, pageable.getPageSize());
-        vendors.forEach(vendor -> vendorList.add(vendor));
-        return vendorList;
+    public List<Product> toContract(Pageable pageable){
+        List<Product> productList = new ArrayList<>();
+        Page<Product> products = new PageImpl<Product>(productList, pageable, pageable.getPageSize());
+        products.forEach(product -> productList.add(product));
+        return productList;
     }
 }
