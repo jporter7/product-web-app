@@ -17,7 +17,7 @@ public class ProductRetrieveRestController {
 
     public ProductRetrieveRestController(IProductRetrieveService retrieveService) { this.retrieveService = retrieveService; }
 
-    @GetMapping(value = "/product/{id}")
+    @GetMapping(value = "/products/{id}")
     public Result retrieve(@RequestParam("id") Long id) {
         retrieveService.execute(id, new ProductRetrieveService.ServiceResponse() {
             @Override

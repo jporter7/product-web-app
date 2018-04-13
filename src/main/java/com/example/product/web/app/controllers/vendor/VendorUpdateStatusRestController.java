@@ -4,8 +4,8 @@ import com.kleancierge.product.api.contract.FieldErrors;
 import com.kleancierge.product.api.contract.Result;
 import com.kleancierge.product.api.contract.vendor.IVendorUpdateStatusService;
 import com.kleancierge.product.api.contract.vendor.VendorUpdateStatusService;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -18,8 +18,8 @@ public class VendorUpdateStatusRestController {
         this.updateStatusService = updateStatusService;
     }
 
-    @PutMapping(value = "/vendor/status/{id}")
-    public Result updateStatus(@RequestParam("id") Long id, String status) {
+    @PutMapping(value = "/vendor/{id}/status")
+    public Result updateStatus(@PathVariable("id") Long id, String status) {
         updateStatusService.execute(id, status, new VendorUpdateStatusService.ServiceResponse() {
             @Override
             public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }

@@ -20,7 +20,7 @@ public class VendorListRestController {
 
     public VendorListRestController(IVendorListService listService) { this.listService = listService; }
 
-    @GetMapping(value = "/vendors/{pageIndex}")
+    @GetMapping(value = "/vendors")
     public Result list(@RequestParam("pageSize") int pageSize, @RequestParam("pageIndex") int pageIndex) {
         PageRequest page = new PageRequest(pageIndex, pageSize);
 

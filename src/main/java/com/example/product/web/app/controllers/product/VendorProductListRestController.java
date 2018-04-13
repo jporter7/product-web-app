@@ -20,7 +20,7 @@ public class VendorProductListRestController {
 
     public VendorProductListRestController(IVendorProductListService listService) { this.listService = listService; }
 
-    @GetMapping(value = "/vendor/{id}/products/{pageIndex}")
+    @GetMapping(value = "/vendors/{id}/products")
     public Result list(@RequestParam("pageSize") int pageSize, @RequestParam("pageIndex") int pageIndex,
                        @RequestParam("id") Long id) {
         PageRequest page = new PageRequest(pageIndex, pageSize);
