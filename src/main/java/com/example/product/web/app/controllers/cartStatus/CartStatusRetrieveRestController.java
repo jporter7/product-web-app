@@ -1,4 +1,4 @@
-package com.example.product.web.app.controllers.CartStatus;
+package com.example.product.web.app.controllers.cartStatus;
 
 import com.kleancierge.product.api.contract.FieldErrors;
 import com.kleancierge.product.api.contract.Result;
