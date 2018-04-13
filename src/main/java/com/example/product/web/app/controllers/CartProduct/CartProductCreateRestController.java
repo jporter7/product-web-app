@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CreateRestController {
+public class CartProductCreateRestController {
     private ICartProductCreateService createService;
 
     private Result result;
 
-    public CreateRestController(ICartProductCreateService createService) { this.createService = createService; }
+    public CartProductCreateRestController(ICartProductCreateService createService) { this.createService = createService; }
 
     @PostMapping(value = "/cart/product")
     public Result create(CreateForm form) {

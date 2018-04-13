@@ -6,12 +6,12 @@ import com.kleancierge.product.api.contract.cartproduct.CartProductUpdateStatusS
 import com.kleancierge.product.api.contract.cartproduct.ICartProductUpdateStatusService;
 import org.springframework.web.bind.annotation.PutMapping;
 
-public class UpdateStatusRestConroller {
+public class CartProductUpdateStatusRestConroller {
     private ICartProductUpdateStatusService updateStatusService;
 
     private Result result;
 
-    public UpdateStatusRestConroller(ICartProductUpdateStatusService updateStatusService) {
+    public CartProductUpdateStatusRestConroller(ICartProductUpdateStatusService updateStatusService) {
         this.updateStatusService = updateStatusService;
     }
 
