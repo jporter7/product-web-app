@@ -16,7 +16,7 @@ public class PhoneCreateRestController {
 
     public PhoneCreateRestController(IPhoneCreateService createService) { this.createService = createService; }
 
-    @PostMapping(value = "/contact/{contactId}/phone")
+    @PostMapping(value = "/contacts/{contactId}/phones")
     public Result create(CreateForm form) {
         createService.execute(form, new PhoneCreateService.ServiceResponse() {
             @Override

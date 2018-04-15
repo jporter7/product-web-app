@@ -8,6 +8,7 @@ import com.kleancierge.product.api.model.cart.Model;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,8 +20,9 @@ public class CleanerPastCartsListRestController {
 
     public CleanerPastCartsListRestController(ICleanerPastCartsListService listService) { this.listService = listService; }
 
-    @GetMapping(value = "/carts/{pageNumber}")
-    public Result list(@RequestParam("pageSize") int pageSize, @RequestParam("pageIndex") int pageIndex, Long id) {
+    @GetMapping(value = "/cleaners/{id}/carts")
+    public Result list(@RequestParam("pageSize") int pageSize, @RequestParam("pageIndex") int pageIndex,
+                       @PathVariable Long id) {
         PageRequest page = new PageRequest(pageIndex, pageSize);
 
         listService.execute(id, page, new CleanerPastCartsListService.ServiceResponse() {

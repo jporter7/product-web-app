@@ -16,7 +16,7 @@ public class CartProductCreateRestController {
 
     public CartProductCreateRestController(ICartProductCreateService createService) { this.createService = createService; }
 
-    @PostMapping(value = "/cart/product")
+    @PostMapping(value = "/carts/{cartId}/cart-products")
     public Result create(CreateForm form) {
         createService.execute(form, new CartProductCreateService.ServiceResponse() {
             @Override

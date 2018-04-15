@@ -17,7 +17,7 @@ public class VendorRetrieveRestController {
 
     public VendorRetrieveRestController(IVendorRetrieveService retrieveService) { this.retrieveService = retrieveService; }
 
-    @GetMapping(value = "/vendor/{id}")
+    @GetMapping(value = "/vendors/{id}")
     public Result retrieve(@RequestParam("id") Long id) {
         retrieveService.execute(id, new VendorRetrieveService.ServiceResponse() {
             @Override

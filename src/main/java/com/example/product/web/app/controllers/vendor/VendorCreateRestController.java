@@ -16,7 +16,7 @@ public class VendorCreateRestController {
 
     public VendorCreateRestController(IVendorCreateService createService) { this.createService = createService; }
 
-    @PostMapping(value = "/vendor")
+    @PostMapping(value = "/vendors")
     public Result create(CreateForm form) {
         createService.execute(form, new VendorCreateService.ServiceResponse() {
             @Override
