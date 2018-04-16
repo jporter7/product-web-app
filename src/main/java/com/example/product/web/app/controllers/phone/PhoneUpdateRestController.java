@@ -16,7 +16,7 @@ public class PhoneUpdateRestController {
 
     public PhoneUpdateRestController(IPhoneUpdateService updateService) { this.updateService = updateService; }
 
-    @PutMapping(value = "/contacts/{contactId}/phones/{id}")
+    @PutMapping(value = "/phones/{id}")
     public Result update(UpdateForm form) {
         updateService.execute(form, new PhoneUpdateService.ServiceResponse() {
             @Override
