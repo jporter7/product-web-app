@@ -2,12 +2,10 @@ package com.example.product.web.app.adapter.contact;
 
 import com.example.product.web.app.model.contact.CreateFormWA;
 import com.example.product.web.app.model.contact.ModelWA;
-import com.kleancierge.product.api.contract.contact.ContactCreateService;
-import com.kleancierge.product.api.model.contact.CreateForm;
 import com.kleancierge.product.api.repository.entity.Contact;
 
 public class CreateContactAdapter {
-    public ModelWA toWebApp(CreateFormWA createForm){
+    public ModelWA toWebApp(CreateFormWA createForm) {
         ModelWA model = new ModelWA();
         model.setEmailAddress(createForm.getEmailAddress());
         model.setNote(createForm.getNote());
@@ -16,7 +14,7 @@ public class CreateContactAdapter {
         return model;
     }
 
-    public Contact toContract(ModelWA model){
+    public Contact toContract(ModelWA model) {
         Contact contact = new Contact();
         contact.setEmailAddress(model.getEmailAddress());
         contact.setNote(model.getNote());

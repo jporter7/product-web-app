@@ -14,16 +14,22 @@ public class ContactUpdateRestController {
 
     private Result result;
 
-    public ContactUpdateRestController(IContactUpdateService updateService) { this.updateService = updateService; }
+    public ContactUpdateRestController(IContactUpdateService updateService) {
+        this.updateService = updateService;
+    }
 
     @PutMapping(value = "/contacts/{id}")
     public Result update(UpdateForm form) {
         updateService.execute(form, new ContactUpdateService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Long id) { result = Result.SUCCESS(id); }
+            public void success(Long id) {
+                result = Result.SUCCESS(id);
+            }
         });
 
         return result;

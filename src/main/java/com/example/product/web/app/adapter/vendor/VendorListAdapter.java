@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VendorListAdapter {
-    public List<Vendor> toContract(Pageable pageable){
+    public List<Vendor> toContract(Pageable pageable) {
         List<Vendor> vendorList = new ArrayList<>();
         Page<Vendor> vendors = new PageImpl<Vendor>(vendorList, pageable, pageable.getPageSize());
         vendors.forEach(vendor -> vendorList.add(vendor));

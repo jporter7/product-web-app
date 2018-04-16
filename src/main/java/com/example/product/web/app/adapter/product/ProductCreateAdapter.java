@@ -8,7 +8,7 @@ import com.kleancierge.product.api.repository.entity.Product;
 import java.util.Locale;
 
 public class ProductCreateAdapter {
-    public ModelWA toWebApp(CreateFormWA createForm){
+    public ModelWA toWebApp(CreateFormWA createForm) {
         ModelWA model = new ModelWA();
         model.setImgUrl(createForm.getImgUrl());
         model.setAltId(createForm.getAltId());
@@ -20,7 +20,7 @@ public class ProductCreateAdapter {
         return model;
     }
 
-    public Product toContract(ModelWA model){
+    public Product toContract(ModelWA model) {
         Product product = new Product();
         product.setImgUrl(model.getImgUrl());
         product.setAltId(model.getAltId());

@@ -6,7 +6,7 @@ import com.kleancierge.product.api.repository.entity.Phone;
 import java.util.Locale;
 
 public class RetrievePhoneAdapter {
-    public Phone toContract(ModelWA model){
+    public Phone toContract(ModelWA model) {
         Phone phone = new Phone();
         phone.setAreaCode(model.getAreaCode());
         phone.setNumber(model.getNumber());

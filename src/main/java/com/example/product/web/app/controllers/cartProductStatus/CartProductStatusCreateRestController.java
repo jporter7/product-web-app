@@ -2,9 +2,9 @@ package com.example.product.web.app.controllers.cartProductStatus;
 
 import com.kleancierge.product.api.contract.FieldErrors;
 import com.kleancierge.product.api.contract.Result;
-import com.kleancierge.product.api.contract.cartproductstatus.CartProductStatusCreateService;
-import com.kleancierge.product.api.contract.cartproductstatus.ICartProductStatusCreateService;
-import com.kleancierge.product.api.model.cartproductstatus.CreateForm;
+import com.kleancierge.product.api.contract.cartProductStatus.CartProductStatusCreateService;
+import com.kleancierge.product.api.contract.cartProductStatus.ICartProductStatusCreateService;
+import com.kleancierge.product.api.model.cartProductStatus.CreateForm;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,16 +14,22 @@ public class CartProductStatusCreateRestController {
 
     private Result result;
 
-    public CartProductStatusCreateRestController(ICartProductStatusCreateService createService) { this.createService = createService; }
+    public CartProductStatusCreateRestController(ICartProductStatusCreateService createService) {
+        this.createService = createService;
+    }
 
     @PostMapping(value = "/cart-products/{cartProductId}/cart-product-statuses")
     public Result create(CreateForm form) {
         createService.execute(form, new CartProductStatusCreateService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Long id) { result = Result.SUCCESS(id); }
+            public void success(Long id) {
+                result = Result.SUCCESS(id);
+            }
         });
 
         return result;

@@ -23,24 +23,44 @@ public class CreateFormWA {
 
     }
 
-    public Long getContactId() { return contactId; }
+    public Long getContactId() {
+        return contactId;
+    }
 
-    public void setContactId(Long contactId) { this.contactId = contactId; }
+    public void setContactId(Long contactId) {
+        this.contactId = contactId;
+    }
 
-    public String getAreaCode() { return areaCode; }
+    public String getAreaCode() {
+        return areaCode;
+    }
 
-    public void setAreaCode(String areaCode) { this.areaCode = areaCode; }
+    public void setAreaCode(String areaCode) {
+        this.areaCode = areaCode;
+    }
 
-    public String getNumber() { return number; }
+    public String getNumber() {
+        return number;
+    }
 
-    public void setNumber(String number) { this.number = number; }
+    public void setNumber(String number) {
+        this.number = number;
+    }
 
-    public String getExtension() { return extension; }
+    public String getExtension() {
+        return extension;
+    }
 
-    public void setExtension(String extension) { this.extension = extension; }
+    public void setExtension(String extension) {
+        this.extension = extension;
+    }
 
-    public String getType() { return type; }
+    public String getType() {
+        return type;
+    }
 
-    public void setType(String type) { this.type = type; }
+    public void setType(String type) {
+        this.type = type;
+    }
 
 }

@@ -16,7 +16,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan
 public class ProductWebAppApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ProductWebAppApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ProductWebAppApplication.class, args);
+    }
 }

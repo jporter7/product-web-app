@@ -29,36 +29,68 @@ public class CreateFormWA {
 
     }
 
-    public String getDescription() { return description; }
+    public String getDescription() {
+        return description;
+    }
 
-    public void setDescription(String description) { this.description = description; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public String getSummary() { return summary; }
+    public String getSummary() {
+        return summary;
+    }
 
-    public void setSummary(String summary) { this.summary = summary; }
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
 
-    public String getImgUrl() { return imgUrl; }
+    public String getImgUrl() {
+        return imgUrl;
+    }
 
-    public void setImgUrl(String imgUrl) { this.imgUrl = imgUrl; }
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 
-    public String getStatus() { return status; }
+    public String getStatus() {
+        return status;
+    }
 
-    public void setStatus(String status) { this.status = status; }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public Long getVendorId() { return vendorId; }
+    public Long getVendorId() {
+        return vendorId;
+    }
 
-    public void setVendorId(Long vendorId) { this.vendorId = vendorId; }
+    public void setVendorId(Long vendorId) {
+        this.vendorId = vendorId;
+    }
 
-    public String getAltId() { return altId; }
+    public String getAltId() {
+        return altId;
+    }
 
-    public void setAltId(String altId) { this.altId = altId; }
+    public void setAltId(String altId) {
+        this.altId = altId;
+    }
 
-    public String getPrice() { return price; }
+    public String getPrice() {
+        return price;
+    }
 
-    public void setPrice(String price) { this.price = price; }
+    public void setPrice(String price) {
+        this.price = price;
+    }
 
 }

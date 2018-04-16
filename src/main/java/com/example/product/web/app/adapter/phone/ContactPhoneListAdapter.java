@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContactPhoneListAdapter {
-    public List<Phone> toContract(Pageable pageable){
+    public List<Phone> toContract(Pageable pageable) {
         List<Phone> phoneList = new ArrayList<>();
         Page<Phone> phones = new PageImpl<Phone>(phoneList, pageable, pageable.getPageSize());
         phones.forEach(phone -> phoneList.add(phone));

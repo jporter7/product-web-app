@@ -14,16 +14,22 @@ public class VendorUpdateRestController {
 
     private Result result;
 
-    public VendorUpdateRestController(IVendorUpdateService updateService) { this.updateService = updateService; }
+    public VendorUpdateRestController(IVendorUpdateService updateService) {
+        this.updateService = updateService;
+    }
 
     @PutMapping(value = "/vendors/{id}")
     public Result update(UpdateForm form) {
         updateService.execute(form, new VendorUpdateService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Long id) { result = Result.SUCCESS(id); }
+            public void success(Long id) {
+                result = Result.SUCCESS(id);
+            }
         });
 
         return result;

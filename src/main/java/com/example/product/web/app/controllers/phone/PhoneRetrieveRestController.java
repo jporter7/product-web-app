@@ -15,16 +15,22 @@ public class PhoneRetrieveRestController {
 
     private Result result;
 
-    public PhoneRetrieveRestController(IPhoneRetrieveService retrieveService) { this.retrieveService = retrieveService; }
+    public PhoneRetrieveRestController(IPhoneRetrieveService retrieveService) {
+        this.retrieveService = retrieveService;
+    }
 
     @GetMapping(value = "/phones/{id}")
     public Result retrieve(@PathVariable("id") Long id) {
         retrieveService.execute(id, new PhoneRetrieveService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Model contact) { result = Result.SUCCESS(contact); }
+            public void success(Model contact) {
+                result = Result.SUCCESS(contact);
+            }
         });
 
         return result;

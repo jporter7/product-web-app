@@ -24,24 +24,44 @@ public class CreateFormWA {
 
     }
 
-    public Long getVendorId() { return vendorId; }
+    public Long getVendorId() {
+        return vendorId;
+    }
 
-    public void setVendorId(Long vendorId) { this.vendorId = vendorId; }
+    public void setVendorId(Long vendorId) {
+        this.vendorId = vendorId;
+    }
 
-    public String getFirstName() { return firstName; }
+    public String getFirstName() {
+        return firstName;
+    }
 
-    public void setFirstName(String firstName) { this.firstName = firstName; }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-    public String getLastName() { return lastName; }
+    public String getLastName() {
+        return lastName;
+    }
 
-    public void setLastName(String lastName) { this.lastName = lastName; }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-    public String getNote() { return note; }
+    public String getNote() {
+        return note;
+    }
 
-    public void setNote(String note) { this.note = note;}
+    public void setNote(String note) {
+        this.note = note;
+    }
 
-    public String getEmailAddress() { return emailAddress; }
+    public String getEmailAddress() {
+        return emailAddress;
+    }
 
-    public void setEmailAddress(String emailAddress) { this.emailAddress = emailAddress; }
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
 
 }

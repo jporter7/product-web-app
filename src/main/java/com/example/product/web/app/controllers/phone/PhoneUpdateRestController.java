@@ -14,16 +14,22 @@ public class PhoneUpdateRestController {
 
     private Result result;
 
-    public PhoneUpdateRestController(IPhoneUpdateService updateService) { this.updateService = updateService; }
+    public PhoneUpdateRestController(IPhoneUpdateService updateService) {
+        this.updateService = updateService;
+    }
 
     @PutMapping(value = "/phones/{id}")
     public Result update(UpdateForm form) {
         updateService.execute(form, new PhoneUpdateService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Long id) { result = Result.SUCCESS(id); }
+            public void success(Long id) {
+                result = Result.SUCCESS(id);
+            }
         });
 
         return result;

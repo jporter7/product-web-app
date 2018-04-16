@@ -14,16 +14,22 @@ public class VendorCreateRestController {
 
     private Result result;
 
-    public VendorCreateRestController(IVendorCreateService createService) { this.createService = createService; }
+    public VendorCreateRestController(IVendorCreateService createService) {
+        this.createService = createService;
+    }
 
     @PostMapping(value = "/vendors")
     public Result create(CreateForm form) {
         createService.execute(form, new VendorCreateService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Long id) { result = Result.SUCCESS(id); }
+            public void success(Long id) {
+                result = Result.SUCCESS(id);
+            }
         });
 
         return result;

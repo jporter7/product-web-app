@@ -4,7 +4,7 @@ import com.example.product.web.app.model.vendor.ModelWA;
 import com.kleancierge.product.api.repository.entity.Vendor;
 
 public class VendorRetrieveAdapter {
-    public Vendor toContract(ModelWA model){
+    public Vendor toContract(ModelWA model) {
         Vendor vendor = new Vendor();
         vendor.setName(model.getName());
         vendor.setSummary(model.getSummary());

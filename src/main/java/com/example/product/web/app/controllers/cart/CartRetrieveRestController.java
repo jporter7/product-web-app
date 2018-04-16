@@ -15,16 +15,22 @@ public class CartRetrieveRestController {
 
     private Result result;
 
-    public CartRetrieveRestController(ICartRetrieveService retrieveService) { this.retrieveService = retrieveService; }
+    public CartRetrieveRestController(ICartRetrieveService retrieveService) {
+        this.retrieveService = retrieveService;
+    }
 
     @GetMapping(value = "/cart/{id}")
     public Result retrieve(@PathVariable Long id) {
         retrieveService.execute(id, new CartRetrieveService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Model contact) { result = Result.SUCCESS(contact); }
+            public void success(Model contact) {
+                result = Result.SUCCESS(contact);
+            }
         });
 
         return result;

@@ -14,16 +14,22 @@ public class PhoneCreateRestController {
 
     private Result result;
 
-    public PhoneCreateRestController(IPhoneCreateService createService) { this.createService = createService; }
+    public PhoneCreateRestController(IPhoneCreateService createService) {
+        this.createService = createService;
+    }
 
     @PostMapping(value = "/contacts/{contactId}/phones")
     public Result create(CreateForm form) {
         createService.execute(form, new PhoneCreateService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Long id) { result = Result.SUCCESS(id); }
+            public void success(Long id) {
+                result = Result.SUCCESS(id);
+            }
         });
 
         return result;

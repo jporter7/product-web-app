@@ -7,7 +7,6 @@ import com.kleancierge.product.api.contract.contact.VendorContactListService;
 import com.kleancierge.product.api.model.contact.Model;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +18,9 @@ public class VendorContactListRestController {
 
     private Result result;
 
-    public VendorContactListRestController(IVendorContactListService listService) { this.listService = listService; }
+    public VendorContactListRestController(IVendorContactListService listService) {
+        this.listService = listService;
+    }
 
     @GetMapping(value = "/vendors/{id}/contacts")
     public Result list(@RequestParam("pageSize") int pageSize, @RequestParam("pageIndex") int pageIndex,
@@ -28,10 +29,14 @@ public class VendorContactListRestController {
 
         listService.execute(id, page, new VendorContactListService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Page<Model> products) { result = Result.SUCCESS(products); }
+            public void success(Page<Model> products) {
+                result = Result.SUCCESS(products);
+            }
         });
 
         return result;

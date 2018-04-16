@@ -19,7 +19,9 @@ public class VendorProductListRestController {
 
     private Result result;
 
-    public VendorProductListRestController(IVendorProductListService listService) { this.listService = listService; }
+    public VendorProductListRestController(IVendorProductListService listService) {
+        this.listService = listService;
+    }
 
     @GetMapping(value = "/vendors/{id}/products")
     public Result list(@RequestParam("pageSize") int pageSize, @RequestParam("pageIndex") int pageIndex,
@@ -28,10 +30,14 @@ public class VendorProductListRestController {
 
         listService.execute(id, page, new VendorProductListService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Page<Model> products) { result = Result.SUCCESS(products); }
+            public void success(Page<Model> products) {
+                result = Result.SUCCESS(products);
+            }
         });
 
         return result;

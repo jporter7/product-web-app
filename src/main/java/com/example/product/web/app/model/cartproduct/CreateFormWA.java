@@ -6,18 +6,31 @@ public class CreateFormWA {
     private Long productId;
     private Long cartId;
 
-    public CreateFormWA() { }
+    public CreateFormWA() {
+    }
 
-    public int getQuantity() {  return quantity;  }
+    public int getQuantity() {
+        return quantity;
+    }
 
-    public void setQuantity(int quantity) {  this.quantity = quantity;   }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
-    public Long getProductId() {return productId;}
+    public Long getProductId() {
+        return productId;
+    }
 
-    public void setProductId(Long productId) {this.productId = productId;}
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
 
-    public Long getCartId() { return cartId; }
+    public Long getCartId() {
+        return cartId;
+    }
 
-    public void setCartId(Long cartId) { this.cartId = cartId; }
+    public void setCartId(Long cartId) {
+        this.cartId = cartId;
+    }
 
 }

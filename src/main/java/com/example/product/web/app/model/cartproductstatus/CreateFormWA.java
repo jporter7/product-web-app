@@ -19,11 +19,19 @@ public class CreateFormWA {
 
     }
 
-    public void setCartProductId(Long cartProductId) { this.cartProductId = cartProductId; }
+    public void setCartProductId(Long cartProductId) {
+        this.cartProductId = cartProductId;
+    }
 
-    public Long getCartProductId() { return cartProductId; }
+    public Long getCartProductId() {
+        return cartProductId;
+    }
 
-    public String getStatus() { return status; }
+    public String getStatus() {
+        return status;
+    }
 
-    public void setStatus(String status) { this.status = status; }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

@@ -2,9 +2,9 @@ package com.example.product.web.app.controllers.cartProduct;
 
 import com.kleancierge.product.api.contract.FieldErrors;
 import com.kleancierge.product.api.contract.Result;
-import com.kleancierge.product.api.contract.cartproduct.CartProductListService;
-import com.kleancierge.product.api.contract.cartproduct.ICartProductListService;
-import com.kleancierge.product.api.model.cartproduct.Model;
+import com.kleancierge.product.api.contract.cartProduct.CartProductListService;
+import com.kleancierge.product.api.contract.cartProduct.ICartProductListService;
+import com.kleancierge.product.api.model.cartProduct.Model;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,9 @@ public class CartProductListRestController {
 
     private Result result;
 
-    public CartProductListRestController(ICartProductListService listService) { this.listService = listService; }
+    public CartProductListRestController(ICartProductListService listService) {
+        this.listService = listService;
+    }
 
     @GetMapping(value = "/carts/{id}/cart-products")
     public Result list(@RequestParam("pageSize") int pageSize, @RequestParam("pageIndex") int pageIndex,
@@ -27,10 +29,14 @@ public class CartProductListRestController {
 
         listService.execute(id, page, new CartProductListService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Page<Model> products) { result = Result.SUCCESS(products); }
+            public void success(Page<Model> products) {
+                result = Result.SUCCESS(products);
+            }
         });
 
         return result;

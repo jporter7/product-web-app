@@ -14,16 +14,22 @@ public class PhoneDeleteRestController {
 
     private Result result;
 
-    public PhoneDeleteRestController(IPhoneDeleteService deleteService) { this.deleteService = deleteService; }
+    public PhoneDeleteRestController(IPhoneDeleteService deleteService) {
+        this.deleteService = deleteService;
+    }
 
     @DeleteMapping(value = "/phones/{id}")
     public Result delete(@PathVariable("id") Long id) {
         deleteService.execute(id, new PhoneDeleteService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Long id) { result = Result.SUCCESS(id); }
+            public void success(Long id) {
+                result = Result.SUCCESS(id);
+            }
         });
 
         return result;

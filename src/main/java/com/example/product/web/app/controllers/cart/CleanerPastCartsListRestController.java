@@ -18,7 +18,9 @@ public class CleanerPastCartsListRestController {
 
     private Result result;
 
-    public CleanerPastCartsListRestController(ICleanerPastCartsListService listService) { this.listService = listService; }
+    public CleanerPastCartsListRestController(ICleanerPastCartsListService listService) {
+        this.listService = listService;
+    }
 
     @GetMapping(value = "/cleaners/{id}/carts")
     public Result list(@RequestParam("pageSize") int pageSize, @RequestParam("pageIndex") int pageIndex,
@@ -27,10 +29,14 @@ public class CleanerPastCartsListRestController {
 
         listService.execute(id, page, new CleanerPastCartsListService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Page<Model> products) { result = Result.SUCCESS(products); }
+            public void success(Page<Model> products) {
+                result = Result.SUCCESS(products);
+            }
         });
 
         return result;

@@ -18,7 +18,9 @@ public class VendorListRestController {
 
     private Result result;
 
-    public VendorListRestController(IVendorListService listService) { this.listService = listService; }
+    public VendorListRestController(IVendorListService listService) {
+        this.listService = listService;
+    }
 
     @GetMapping(value = "/vendors")
     public Result list(@RequestParam("pageSize") int pageSize, @RequestParam("pageIndex") int pageIndex) {
@@ -26,10 +28,14 @@ public class VendorListRestController {
 
         listService.execute(page, new VendorListService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Page<Model> vendors) { result = Result.SUCCESS(vendors); }
+            public void success(Page<Model> vendors) {
+                result = Result.SUCCESS(vendors);
+            }
         });
 
         return result;

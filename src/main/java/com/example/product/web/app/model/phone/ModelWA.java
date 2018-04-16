@@ -1,7 +1,5 @@
 package com.example.product.web.app.model.phone;
 
-import com.kleancierge.product.api.repository.entity.Phone;
-
 /**
  * @property id - the Phone's id
  * @property areaCode - the Phone's area cide
@@ -20,25 +18,45 @@ public class ModelWA {
 
     }
 
-    public Long getId() { return id; }
+    public Long getId() {
+        return id;
+    }
 
-    public void setId(Long id) { this.id = id; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getAreaCode() { return areaCode; }
+    public String getAreaCode() {
+        return areaCode;
+    }
 
-    public void setAreaCode(String areaCode) { this.areaCode = areaCode; }
+    public void setAreaCode(String areaCode) {
+        this.areaCode = areaCode;
+    }
 
-    public String getNumber() { return number; }
+    public String getNumber() {
+        return number;
+    }
 
-    public void setNumber(String number) { this.number = number; }
+    public void setNumber(String number) {
+        this.number = number;
+    }
 
-    public String getExtension() { return extension; }
+    public String getExtension() {
+        return extension;
+    }
 
-    public void setExtension(String extension) { this.extension = extension; }
+    public void setExtension(String extension) {
+        this.extension = extension;
+    }
 
-    public String getType() { return type; }
+    public String getType() {
+        return type;
+    }
 
-    public void setType(String type) { this.type = type; }
+    public void setType(String type) {
+        this.type = type;
+    }
 
     @Override
     public String toString() {

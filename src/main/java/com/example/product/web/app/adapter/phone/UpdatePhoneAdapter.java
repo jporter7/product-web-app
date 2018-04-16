@@ -7,7 +7,7 @@ import com.kleancierge.product.api.repository.entity.Phone;
 import java.util.Locale;
 
 public class UpdatePhoneAdapter {
-    public ModelWA toWebApp(CreateFormWA createForm){
+    public ModelWA toWebApp(CreateFormWA createForm) {
         ModelWA model = new ModelWA();
         model.setAreaCode(createForm.getAreaCode());
         model.setNumber(createForm.getNumber());
@@ -16,7 +16,7 @@ public class UpdatePhoneAdapter {
         return model;
     }
 
-    public Phone toContract(ModelWA model){
+    public Phone toContract(ModelWA model) {
         Phone phone = new Phone();
         phone.setAreaCode(model.getAreaCode());
         phone.setNumber(model.getNumber());

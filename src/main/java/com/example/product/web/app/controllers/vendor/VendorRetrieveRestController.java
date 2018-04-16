@@ -15,16 +15,22 @@ public class VendorRetrieveRestController {
 
     private Result result;
 
-    public VendorRetrieveRestController(IVendorRetrieveService retrieveService) { this.retrieveService = retrieveService; }
+    public VendorRetrieveRestController(IVendorRetrieveService retrieveService) {
+        this.retrieveService = retrieveService;
+    }
 
     @GetMapping(value = "/vendors/{id}")
     public Result retrieve(@PathVariable("id") Long id) {
         retrieveService.execute(id, new VendorRetrieveService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Model vendor) { result = Result.SUCCESS(vendor); }
+            public void success(Model vendor) {
+                result = Result.SUCCESS(vendor);
+            }
         });
 
         return result;

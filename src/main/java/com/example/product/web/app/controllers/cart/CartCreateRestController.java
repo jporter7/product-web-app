@@ -13,16 +13,22 @@ public class CartCreateRestController {
 
     private Result result;
 
-    public CartCreateRestController(ICartCreateService createService) { this.createService = createService; }
+    public CartCreateRestController(ICartCreateService createService) {
+        this.createService = createService;
+    }
 
     @PostMapping(value = "/cleaners/{cleanerId}/carts")
     public Result create(Long cleanerId) {
         createService.execute(cleanerId, new CartCreateService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Long id) { result = Result.SUCCESS(id); }
+            public void success(Long id) {
+                result = Result.SUCCESS(id);
+            }
         });
 
         return result;

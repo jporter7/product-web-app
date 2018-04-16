@@ -8,17 +8,30 @@ public class ModelWA {
     private String transactionId;
     private LocalDateTime lastModified;
 
-    public ModelWA() {    }
+    public ModelWA() {
+    }
 
-    public Long getId() { return id; }
+    public Long getId() {
+        return id;
+    }
 
-    public void setId(Long id) { this.id = id; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public LocalDateTime getLastModified() { return this.lastModified; }
+    public LocalDateTime getLastModified() {
+        return this.lastModified;
+    }
 
-    public void setLastModified(LocalDateTime lastModified) { this.lastModified = lastModified; }
+    public void setLastModified(LocalDateTime lastModified) {
+        this.lastModified = lastModified;
+    }
 
-    public String getTransactionId() { return this.transactionId; }
+    public String getTransactionId() {
+        return this.transactionId;
+    }
 
-    public void setTransactionId(String transactionId) { this.transactionId = transactionId; }
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
+    }
 }

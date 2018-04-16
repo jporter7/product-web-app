@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartProductListAdapter {
-    public List<CartProduct> toContract(Pageable pageable){
+    public List<CartProduct> toContract(Pageable pageable) {
         List<CartProduct> cartProductList = new ArrayList<>();
         Page<CartProduct> cartProducts = new PageImpl<CartProduct>(cartProductList, pageable, pageable.getPageSize());
         cartProducts.forEach(cartProduct -> cartProductList.add(cartProduct));

@@ -1,7 +1,5 @@
 package com.example.product.web.app.model.vendor;
 
-import com.kleancierge.product.api.repository.entity.Vendor;
-
 /**
  * @property id - the Vendor's id
  * @property name - the Vendor's name
@@ -20,36 +18,62 @@ public class ModelWA {
     private String address;
     private String imgUrl;
 
-    public ModelWA() { }
+    public ModelWA() {
+    }
 
-    public Long getId() { return id; }
+    public Long getId() {
+        return id;
+    }
 
-    public void setId(Long id) { this.id = id; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public String getName() { return name; }
+    public String getName() {
+        return name;
+    }
 
-    public void setName(String name) { this.name = name;}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public String getSummary() { return summary;}
+    public String getSummary() {
+        return summary;
+    }
 
-    public void setSummary(String summary) { this.summary = summary; }
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
 
-    public String getUrl() { return url; }
+    public String getUrl() {
+        return url;
+    }
 
-    public void setUrl(String url) { this.url = url; }
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-    public String getStatus() { return status; }
+    public String getStatus() {
+        return status;
+    }
 
-    public void setStatus(String status)
-    {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public String getAddress() { return address; }
+    public String getAddress() {
+        return address;
+    }
 
-    public void setAddress(String address) { this.address = address; }
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-    public String getImgUrl() { return imgUrl; }
+    public String getImgUrl() {
+        return imgUrl;
+    }
 
-    public void setImgUrl(String imgUrl) { this.imgUrl = imgUrl; }
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 }

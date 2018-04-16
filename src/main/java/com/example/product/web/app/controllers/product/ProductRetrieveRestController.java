@@ -15,16 +15,22 @@ public class ProductRetrieveRestController {
 
     private Result result;
 
-    public ProductRetrieveRestController(IProductRetrieveService retrieveService) { this.retrieveService = retrieveService; }
+    public ProductRetrieveRestController(IProductRetrieveService retrieveService) {
+        this.retrieveService = retrieveService;
+    }
 
     @GetMapping(value = "/products/{id}")
     public Result retrieve(@PathVariable("id") Long id) {
         retrieveService.execute(id, new ProductRetrieveService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Model product) { result = Result.SUCCESS(product); }
+            public void success(Model product) {
+                result = Result.SUCCESS(product);
+            }
         });
 
         return result;

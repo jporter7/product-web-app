@@ -16,16 +16,22 @@ public class ContactRetrieveRestController {
 
     private Result result;
 
-    public ContactRetrieveRestController(IContactRetrieveService retrieveService) { this.retrieveService = retrieveService; }
+    public ContactRetrieveRestController(IContactRetrieveService retrieveService) {
+        this.retrieveService = retrieveService;
+    }
 
     @GetMapping(value = "/contacts/{id}")
     public Result retrieve(@PathVariable Long id) {
         retrieveService.execute(id, new ContactRetrieveService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Model contact) { result = Result.SUCCESS(contact); }
+            public void success(Model contact) {
+                result = Result.SUCCESS(contact);
+            }
         });
 
         return result;

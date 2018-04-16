@@ -14,16 +14,22 @@ public class ContactCreateRestController {
 
     private Result result;
 
-    public ContactCreateRestController(IContactCreateService createService) { this.createService = createService; }
+    public ContactCreateRestController(IContactCreateService createService) {
+        this.createService = createService;
+    }
 
     @PostMapping(value = "/vendors/{vendorId}/contacts")
     public Result create(CreateForm form) {
         createService.execute(form, new ContactCreateService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Long id) { result = Result.SUCCESS(id); }
+            public void success(Long id) {
+                result = Result.SUCCESS(id);
+            }
         });
 
         return result;

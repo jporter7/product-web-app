@@ -5,7 +5,7 @@ import com.example.product.web.app.model.vendor.ModelWA;
 import com.kleancierge.product.api.repository.entity.Vendor;
 
 public class VendorCreateAdapter {
-    public ModelWA toWebApp(CreateFormWA createForm){
+    public ModelWA toWebApp(CreateFormWA createForm) {
         ModelWA model = new ModelWA();
         model.setName(createForm.getName());
         model.setSummary(createForm.getSummary());
@@ -16,7 +16,7 @@ public class VendorCreateAdapter {
         return model;
     }
 
-    public Vendor toContract(ModelWA model){
+    public Vendor toContract(ModelWA model) {
         Vendor vendor = new Vendor();
         vendor.setName(model.getName());
         vendor.setSummary(model.getSummary());

@@ -22,10 +22,14 @@ public class VendorUpdateStatusRestController {
     public Result updateStatus(@PathVariable("id") Long id, String status) {
         updateStatusService.execute(id, status, new VendorUpdateStatusService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Long id) { result = Result.SUCCESS(id); }
+            public void success(Long id) {
+                result = Result.SUCCESS(id);
+            }
         });
 
         return result;

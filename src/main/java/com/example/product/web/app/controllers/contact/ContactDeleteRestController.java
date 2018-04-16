@@ -14,16 +14,22 @@ public class ContactDeleteRestController {
 
     private Result result;
 
-    public ContactDeleteRestController(IContactDeleteService deleteService) { this.deleteService = deleteService; }
+    public ContactDeleteRestController(IContactDeleteService deleteService) {
+        this.deleteService = deleteService;
+    }
 
     @DeleteMapping(value = "/contacts/{id}")
     public Result delete(@PathVariable Long id) {
         deleteService.execute(id, new ContactDeleteService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Long id) { result = Result.SUCCESS(id); }
+            public void success(Long id) {
+                result = Result.SUCCESS(id);
+            }
         });
 
         return result;

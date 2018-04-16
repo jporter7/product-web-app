@@ -2,9 +2,9 @@ package com.example.product.web.app.controllers.cartProduct;
 
 import com.kleancierge.product.api.contract.FieldErrors;
 import com.kleancierge.product.api.contract.Result;
-import com.kleancierge.product.api.contract.cartproduct.CartProductUpdateService;
-import com.kleancierge.product.api.contract.cartproduct.ICartProductUpdateService;
-import com.kleancierge.product.api.model.cartproduct.UpdateForm;
+import com.kleancierge.product.api.contract.cartProduct.CartProductUpdateService;
+import com.kleancierge.product.api.contract.cartProduct.ICartProductUpdateService;
+import com.kleancierge.product.api.model.cartProduct.UpdateForm;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 

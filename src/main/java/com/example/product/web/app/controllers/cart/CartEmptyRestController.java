@@ -14,16 +14,22 @@ public class CartEmptyRestController {
 
     private Result result;
 
-    public CartEmptyRestController(ICartEmptyService deleteService) { this.deleteService = deleteService; }
+    public CartEmptyRestController(ICartEmptyService deleteService) {
+        this.deleteService = deleteService;
+    }
 
     @DeleteMapping(value = "/carts/{id}")
     public Result delete(@PathVariable Long id) {
         deleteService.execute(id, new CartEmptyService.ServiceResponse() {
             @Override
-            public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
+            public void errors(FieldErrors fieldErrors) {
+                result = Result.ERROR(fieldErrors);
+            }
 
             @Override
-            public void success(Long id) { result = Result.SUCCESS(id); }
+            public void success(Long id) {
+                result = Result.SUCCESS(id);
+            }
         });
 
         return result;
