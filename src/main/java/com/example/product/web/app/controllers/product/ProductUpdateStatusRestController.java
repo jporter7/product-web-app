@@ -4,6 +4,7 @@ import com.kleancierge.product.api.contract.FieldErrors;
 import com.kleancierge.product.api.contract.Result;
 import com.kleancierge.product.api.contract.product.IProductUpdateStatusService;
 import com.kleancierge.product.api.contract.product.ProductUpdateStatusService;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,8 +18,8 @@ public class ProductUpdateStatusRestController {
         this.updateStatusService = updateStatusService;
     }
 
-    @PutMapping(value = "/vendors/{vendorId}/products/{productId}/status")
-    public Result updateStatus(Long id, String status) {
+    @PutMapping(value = "/products/{id}/status")
+    public Result updateStatus(@PathVariable Long id, String status) {
         updateStatusService.execute(id, status, new ProductUpdateStatusService.ServiceResponse() {
             @Override
             public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }

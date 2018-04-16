@@ -18,7 +18,7 @@ public class VendorUpdateStatusRestController {
         this.updateStatusService = updateStatusService;
     }
 
-    @PutMapping(value = "/vendor/{id}/status")
+    @PutMapping(value = "/vendors/{id}/status")
     public Result updateStatus(@PathVariable("id") Long id, String status) {
         updateStatusService.execute(id, status, new VendorUpdateStatusService.ServiceResponse() {
             @Override
