@@ -17,7 +17,7 @@ public class PhoneRetrieveRestController {
 
     public PhoneRetrieveRestController(IPhoneRetrieveService retrieveService) { this.retrieveService = retrieveService; }
 
-    @GetMapping(value = "/phone/{id}")
+    @GetMapping(value = "/phones/{id}")
     public Result retrieve(@RequestParam("id") Long id) {
         retrieveService.execute(id, new PhoneRetrieveService.ServiceResponse() {
             @Override

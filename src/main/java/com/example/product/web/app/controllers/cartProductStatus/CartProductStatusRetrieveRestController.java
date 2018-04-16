@@ -6,6 +6,7 @@ import com.kleancierge.product.api.contract.cartproductstatus.CartProductStatusR
 import com.kleancierge.product.api.contract.cartproductstatus.ICartProductStatusRetrieveService;
 import com.kleancierge.product.api.model.cartproductstatus.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,8 +17,8 @@ public class CartProductStatusRetrieveRestController {
 
     public CartProductStatusRetrieveRestController(ICartProductStatusRetrieveService retrieveService) { this.retrieveService = retrieveService; }
 
-    @GetMapping(value = "/cart/cart-product-status/{id}")
-    public Result retrieve(Long id) {
+    @GetMapping(value = "/cart-product-statuses/{id}")
+    public Result retrieve(@PathVariable Long id) {
         retrieveService.execute(id, new CartProductStatusRetrieveService.ServiceResponse() {
             @Override
             public void errors(FieldErrors fieldErrors) { result = Result.ERROR(fieldErrors); }
