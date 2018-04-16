@@ -16,7 +16,7 @@ public class VendorUpdateRestController {
 
     public VendorUpdateRestController(IVendorUpdateService updateService) { this.updateService = updateService; }
 
-    @PutMapping(value = "/vendor/{id}")
+    @PutMapping(value = "/vendors/{id}")
     public Result update(UpdateForm form) {
         updateService.execute(form, new VendorUpdateService.ServiceResponse() {
             @Override
