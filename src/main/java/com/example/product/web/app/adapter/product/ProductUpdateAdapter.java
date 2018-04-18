@@ -4,11 +4,12 @@ import com.example.product.web.app.model.product.ModelWA;
 import com.example.product.web.app.model.product.UpdateFormWA;
 import com.kleancierge.product.api.converter.DollarConverter;
 import com.kleancierge.product.api.repository.entity.Product;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Locale;
 
 public class ProductUpdateAdapter {
-    public ModelWA toWebApp(UpdateFormWA updateForm) {
+    public ModelWA toWebApp(UpdateFormWA updateForm, @RequestParam("id") Long id) {
         ModelWA model = new ModelWA();
         model.setImgUrl(updateForm.getImgUrl());
         model.setAltId(updateForm.getAltId());
@@ -16,6 +17,7 @@ public class ProductUpdateAdapter {
         model.setPrice(updateForm.getPrice());
         model.setDescription(updateForm.getDescription());
         model.setName(updateForm.getName());
+        model.setId(id);
         return model;
     }
 
