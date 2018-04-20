@@ -31,7 +31,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .antMatchers("/vendors").permitAll()
                     .antMatchers("/contacts/{id}/phones").permitAll()
                     .antMatchers("/contacts/{contactId}/phones").hasRole("VENDOR")
-                    .antMatchers("/contacts/{contactId}/phones").hasRole("CLEANER");
+                    .antMatchers("/contacts/{contactId}/phones").hasRole("CLEANER")
+                    .and()
+                .formLogin()
+                    .loginPage("/login").failureUrl("/login-error");
+
     }
 
     @Autowired
