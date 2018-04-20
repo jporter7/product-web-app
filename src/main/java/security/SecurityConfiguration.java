@@ -24,14 +24,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .httpBasic().and()
                 .csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/vendors/{vendorId}/products").hasRole("VENDOR")
-                    .antMatchers("/products/{id}/status").hasRole("VENDOR")
-                    .antMatchers("/vendors/{id}/status").hasRole("ADMIN")
+                    .antMatchers("/vendors/{vendorId}/products").hasRole("Vendor")
+                    .antMatchers("/products/{id}/status").hasRole("Vendor")
+                    .antMatchers("/vendors/{id}/status").hasRole("Admin")
                     .antMatchers("/vendors/{id}/products").permitAll()
                     .antMatchers("/vendors").permitAll()
                     .antMatchers("/contacts/{id}/phones").permitAll()
-                    .antMatchers("/contacts/{contactId}/phones").hasRole("VENDOR")
-                    .antMatchers("/contacts/{contactId}/phones").hasRole("CLEANER")
+                    .antMatchers("/contacts/{contactId}/phones").hasRole("Vendor")
+                    .antMatchers("/contacts/{contactId}/phones").hasRole("Cleaner")
                     .and()
                 .formLogin()
                     .loginPage("/login").failureUrl("/login-error");
@@ -42,10 +42,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
         auth
                 .inMemoryAuthentication()
-                    .withUser("kcadmin").password("pass").roles("ADMIN")
+                    .withUser("kcadmin").password("pass").roles("Admin")
                     .and()
-                    .withUser("kccleaner").password("pass").roles("CLEANER")
+                    .withUser("kccleaner").password("pass").roles("Cleaner")
                     .and()
-                    .withUser("kcvendor").password("pass").roles("VENDOR");
+                    .withUser("kcvendor").password("pass").roles("Vendor");
     }
 }
