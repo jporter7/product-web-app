@@ -32,6 +32,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .requestMatchers(new AntPathRequestMatcher("/vendors/{id}", "GET")).hasRole("CLEANER")
                     .requestMatchers(new AntPathRequestMatcher("/vendors/{id}", "PUT")).hasRole("VENDOR")
                     .requestMatchers(new AntPathRequestMatcher("/vendors/{id}/status", "PUT")).hasRole("ADMIN")
+                    //Cart-Product
+                    //Cart-Product-Status
+                    .requestMatchers(new AntPathRequestMatcher("cart-products/{cartProductId}/cart-product-statuses", "POST")).hasRole("CLEANER")
+                    .requestMatchers(new AntPathRequestMatcher("cart-products/{id}/cart-product-statuses", "GET")).hasRole("CLEANER")
+                    .requestMatchers(new AntPathRequestMatcher("cart-product-statuses/{id}", "GET")).hasRole("CLEANER")
+                    //Cart-Status
+                    .requestMatchers(new AntPathRequestMatcher("carts/{cartId}/cart-statuses", "POST")).hasRole("CLEANER")
+                    .requestMatchers(new AntPathRequestMatcher("carts/{cartId}/cart-statuses", "GET")).hasRole("CLEANER")
+                    .requestMatchers(new AntPathRequestMatcher("cart-statuses/{id}", "GET")).hasRole("CLEANER")
                     //Contact
                     .requestMatchers(new AntPathRequestMatcher("/vendors/{vendorId}/contacts", "POST")).hasRole("VENDOR")
                     .requestMatchers(new AntPathRequestMatcher("/contacts/{id}", "DELETE")).hasRole("VENDOR")
@@ -48,6 +57,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .requestMatchers(new AntPathRequestMatcher("/vendor/{vendorId}/products", "POST")).hasRole("VENDOR")
                     .requestMatchers(new AntPathRequestMatcher("/products/{id}", "GET")).authenticated()
                     .requestMatchers(new AntPathRequestMatcher("/vendor/{id}/products", "GET")).hasRole("VENDOR")
+                    .requestMatchers(new AntPathRequestMatcher("/products/{id}", "PUT")).hasRole("VENDOR")
                     .requestMatchers(new AntPathRequestMatcher("/products/{id}/status", "GET")).hasRole("VENDOR")
                     .and()
                 .formLogin()
