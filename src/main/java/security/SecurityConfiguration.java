@@ -45,6 +45,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .requestMatchers(new AntPathRequestMatcher("carts/{cartId}/cart-statuses", "POST")).hasRole("CLEANER")
                     .requestMatchers(new AntPathRequestMatcher("carts/{cartId}/cart-statuses", "GET")).hasRole("CLEANER")
                     .requestMatchers(new AntPathRequestMatcher("cart-statuses/{id}", "GET")).hasRole("CLEANER")
+                    //Checkout
+                    .requestMatchers(new AntPathRequestMatcher("carts/{id}/checkout", "POST")).hasRole("CLEANER")
+                    .requestMatchers(new AntPathRequestMatcher("carts/{id}/checkout-retry", "POST")).hasRole("CLEANER")
                     //Contact
                     .requestMatchers(new AntPathRequestMatcher("/vendors/{vendorId}/contacts", "POST")).hasRole("VENDOR")
                     .requestMatchers(new AntPathRequestMatcher("/contacts/{id}", "DELETE")).hasRole("VENDOR")
