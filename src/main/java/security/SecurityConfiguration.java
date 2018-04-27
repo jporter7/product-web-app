@@ -16,26 +16,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/*");
-    }
-
-    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .httpBasic().and()
                 .csrf().disable()
                 .authorizeRequests()
-<<<<<<< HEAD
-                    .antMatchers("/vendors/{vendorId}/products").hasRole("Vendor")
-                    .antMatchers("/products/{id}/status").hasRole("Vendor")
-                    .antMatchers("/vendors/{id}/status").hasRole("Admin")
-                    .antMatchers("/vendors/{id}/products").authenticated()
-                    .antMatchers("/vendors").authenticated()
-                    .antMatchers("/contacts/{id}/phones").authenticated()
-                    .antMatchers("/contacts/{contactId}/phones").hasRole("Vendor")
-                    .antMatchers("/contacts/{contactId}/phones").hasRole("Cleaner")
-=======
                     //Cart
                     .requestMatchers(new AntPathRequestMatcher("/cleaners/{cleanerId}/carts", "POST")).hasRole("CLEANER")
                     .requestMatchers(new AntPathRequestMatcher("/carts/{id}", "DELETE")).hasRole("CLEANER")
@@ -82,7 +67,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .requestMatchers(new AntPathRequestMatcher("/vendors/{id}", "GET")).hasRole("CLEANER")
                     .requestMatchers(new AntPathRequestMatcher("/vendors/{id}", "PUT")).hasRole("VENDOR")
                     .requestMatchers(new AntPathRequestMatcher("/vendors/{id}/status", "PUT")).hasRole("ADMIN")
->>>>>>> 6b74f67bf20e845b740b2d1d01b7faca21f869af
                     .and()
                 .formLogin()
                     .loginPage("/login").failureUrl("/login-error");
