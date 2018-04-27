@@ -26,13 +26,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .httpBasic().and()
                 .csrf().disable()
                 .authorizeRequests()
-                    //Vendor
-                    .requestMatchers(new AntPathRequestMatcher("/vendors", "POST")).hasRole("ADMIN")
-                    .requestMatchers(new AntPathRequestMatcher("/vendors", "GET")).authenticated()
-                    .requestMatchers(new AntPathRequestMatcher("/vendors/{id}", "GET")).hasRole("CLEANER")
-                    .requestMatchers(new AntPathRequestMatcher("/vendors/{id}", "PUT")).hasRole("VENDOR")
-                    .requestMatchers(new AntPathRequestMatcher("/vendors/{id}/status", "PUT")).hasRole("ADMIN")
+                    //Cart
+                    .requestMatchers(new AntPathRequestMatcher("/cleaners/{cleanerId}/carts", "POST")).hasRole("CLEANER")
+                    .requestMatchers(new AntPathRequestMatcher("/carts/{id}", "DELETE")).hasRole("CLEANER")
+                    .requestMatchers(new AntPathRequestMatcher("/carts/{id}", "GET")).hasRole("CLEANER")
+                    .requestMatchers(new AntPathRequestMatcher("/cleaners/{id}/carts", "GET")).hasRole("CLEANER")
                     //Cart-Product
+                    .requestMatchers(new AntPathRequestMatcher("/carts/{cartId}/cart-products", "POST")).hasRole("CLEANER")
+                    .requestMatchers(new AntPathRequestMatcher("/cart-products/{id}", "DELETE")).hasRole("CLEANER")
+                    .requestMatchers(new AntPathRequestMatcher("/carts/{id}/cart-product", "GET")).hasRole("CLEANER")
+                    .requestMatchers(new AntPathRequestMatcher("/cart-products/{id}", "GET")).hasRole("CLEANER")
+                    .requestMatchers(new AntPathRequestMatcher("/cart-products/{id}", "PUT")).hasRole("CLEANER")
                     //Cart-Product-Status
                     .requestMatchers(new AntPathRequestMatcher("cart-products/{cartProductId}/cart-product-statuses", "POST")).hasRole("CLEANER")
                     .requestMatchers(new AntPathRequestMatcher("cart-products/{id}/cart-product-statuses", "GET")).hasRole("CLEANER")
@@ -59,9 +63,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .requestMatchers(new AntPathRequestMatcher("/vendor/{id}/products", "GET")).hasRole("VENDOR")
                     .requestMatchers(new AntPathRequestMatcher("/products/{id}", "PUT")).hasRole("VENDOR")
                     .requestMatchers(new AntPathRequestMatcher("/products/{id}/status", "GET")).hasRole("VENDOR")
+                    //Vendor
+                    .requestMatchers(new AntPathRequestMatcher("/vendors", "POST")).hasRole("ADMIN")
+                    .requestMatchers(new AntPathRequestMatcher("/vendors", "GET")).authenticated()
+                    .requestMatchers(new AntPathRequestMatcher("/vendors/{id}", "GET")).hasRole("CLEANER")
+                    .requestMatchers(new AntPathRequestMatcher("/vendors/{id}", "PUT")).hasRole("VENDOR")
+                    .requestMatchers(new AntPathRequestMatcher("/vendors/{id}/status", "PUT")).hasRole("ADMIN")
                     .and()
                 .formLogin()
                     .loginPage("/login").failureUrl("/login-error");
+
 
     }
 
