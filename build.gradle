@@ -20,7 +20,7 @@ apply plugin: 'maven-publish'
 
 jar {
     baseName = 'product-web-app'
-    version = '1.0.0'
+    version = '1.0.1'
 }
 
 processResources {
