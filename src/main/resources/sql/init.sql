@@ -213,7 +213,7 @@ CREATE TABLE cart_transaction (
   INDEX cart_id_idx(cart_id)
 );
 
-DROP TABLE IF EXISTS 'user';
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `email` varchar(100) NOT NULL,
