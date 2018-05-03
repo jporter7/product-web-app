@@ -67,6 +67,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .requestMatchers(new AntPathRequestMatcher("/vendors/{id}", "GET")).hasRole("CLEANER")
                     .requestMatchers(new AntPathRequestMatcher("/vendors/{id}", "PUT")).hasRole("VENDOR")
                     .requestMatchers(new AntPathRequestMatcher("/vendors/{id}/status", "PUT")).hasRole("ADMIN")
+                    .requestMatchers(new AntPathRequestMatcher("/vendors/{id}/btMerchantId", "PUT")).hasRole("VENDOR")
                     .and()
                 .formLogin()
                     .loginPage("/login").failureUrl("/login-error");
