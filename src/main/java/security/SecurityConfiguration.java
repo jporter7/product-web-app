@@ -16,11 +16,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/*");
-    }
-
-    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .httpBasic().and()
